@@ -143,4 +143,6 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for development and validation commands, 
 
 This project is a substantial fork of Saurabh Kumar's [`cyclomatic-complexity-skill`](https://github.com/saurabhkumar8112/cyclomatic-complexity-skill), used under Apache-2.0. It retains the measure-first, real-analyzer, incremental-refactor, re-measure, evidence-reporting, and anti-metric-gaming core. Saurabh Kumar has not endorsed this fork. Exact provenance and modifications are recorded in [UPSTREAM.md](UPSTREAM.md).
 
+**Modification notice:** This README substantially replaces the upstream README for the research-aware fork.
+
 Licensed under [Apache-2.0](LICENSE).

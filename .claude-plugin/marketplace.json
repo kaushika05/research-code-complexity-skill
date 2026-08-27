@@ -5,7 +5,8 @@
   },
   "description": "Portable research-aware code-complexity skills",
   "metadata": {
-    "description": "Portable research-aware code-complexity skills"
+    "description": "Portable research-aware code-complexity skills",
+    "modified_from": "saurabhkumar8112/cyclomatic-complexity-skill@567886f485063c5f5f94503d5712ef75cbcbbd94"
   },
   "plugins": [
     {
