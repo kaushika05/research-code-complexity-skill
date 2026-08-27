@@ -1,0 +1,219 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/kaushika05/research-code-complexity-skill/blob/v0.1.0/skills/research-code-complexity/assets/research-code-complexity.schema.json",
+  "title": "Research Code Complexity profile",
+  "type": "object",
+  "required": ["schema_version"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "project": {
+      "type": "object",
+      "properties": {
+        "discipline": {"type": ["string", "null"]},
+        "lifecycle": {
+          "type": ["string", "null"],
+          "enum": ["exploratory", "active-research", "collaborative-internal-research", "pre-publication", "published", "archived", "reusable-community-software", null]
+        },
+        "audience": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+        "research_outputs": {"type": "array", "items": {"type": "string"}, "uniqueItems": true}
+      },
+      "patternProperties": {"^x-[a-z0-9][a-z0-9_-]*$": true},
+      "additionalProperties": false
+    },
+    "scope": {
+      "type": "object",
+      "properties": {
+        "include": {"$ref": "#/$defs/string_list"},
+        "exclude": {"$ref": "#/$defs/string_list"}
+      },
+      "patternProperties": {"^x-[a-z0-9][a-z0-9_-]*$": true},
+      "additionalProperties": false
+    },
+    "artifacts": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/artifact"}
+    },
+    "complexity": {
+      "type": "object",
+      "properties": {
+        "review_threshold": {"type": ["integer", "null"], "minimum": 1},
+        "refactor_threshold": {"type": ["integer", "null"], "minimum": 1},
+        "per_role": {
+          "type": "object",
+          "propertyNames": {"enum": ["exploratory-notebook", "exploratory-script", "data-ingestion", "data-cleaning-preprocessing", "experiment-orchestration", "analysis-statistics", "visualization-figure-generation", "scientific-kernel", "numerical-kernel", "simulation", "reference-implementation", "reusable-library", "cli-infrastructure", "test-verification", "manuscript-linked-reproduction", "published-archived-snapshot", "generated-code", "vendored-third-party", "raw-data", "derived-generated-output"]},
+          "additionalProperties": {"$ref": "#/$defs/thresholds"}
+        }
+      },
+      "patternProperties": {"^x-[a-z0-9][a-z0-9_-]*$": true},
+      "additionalProperties": false
+    },
+    "scientific_contract": {
+      "type": "object",
+      "properties": {
+        "invariants": {"$ref": "#/$defs/string_list"},
+        "units": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["quantity", "unit"],
+            "properties": {
+              "quantity": {"type": "string", "minLength": 1},
+              "unit": {"type": "string", "minLength": 1},
+              "applies_to": {"type": ["string", "null"]},
+              "provenance": {"type": ["string", "null"]}
+            },
+            "patternProperties": {"^x-[a-z0-9][a-z0-9_-]*$": true},
+            "additionalProperties": false
+          }
+        },
+        "schemas": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["artifact", "description"],
+            "properties": {
+              "artifact": {"type": "string", "minLength": 1},
+              "description": {"type": "string", "minLength": 1},
+              "schema_ref": {"type": ["string", "null"]}
+            },
+            "patternProperties": {"^x-[a-z0-9][a-z0-9_-]*$": true},
+            "additionalProperties": false
+          }
+        },
+        "frozen_outputs": {"$ref": "#/$defs/string_list"},
+        "mappings": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["kind", "reference", "artifact"],
+            "properties": {
+              "kind": {"enum": ["manuscript", "equation", "figure", "table", "protocol", "reference-implementation"]},
+              "reference": {"type": "string", "minLength": 1},
+              "artifact": {"type": "string", "minLength": 1}
+            },
+            "patternProperties": {"^x-[a-z0-9][a-z0-9_-]*$": true},
+            "additionalProperties": false
+          }
+        }
+      },
+      "patternProperties": {"^x-[a-z0-9][a-z0-9_-]*$": true},
+      "additionalProperties": false
+    },
+    "verification": {
+      "type": "object",
+      "properties": {
+        "exact_checks": {"$ref": "#/$defs/string_list"},
+        "numerical_tolerances": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["metric", "provenance"],
+            "properties": {
+              "metric": {"type": "string", "minLength": 1},
+              "absolute": {"type": ["number", "null"], "minimum": 0},
+              "relative": {"type": ["number", "null"], "minimum": 0},
+              "provenance": {"type": ["string", "null"]}
+            },
+            "patternProperties": {"^x-[a-z0-9][a-z0-9_-]*$": true},
+            "additionalProperties": false
+          }
+        },
+        "stochastic": {
+          "type": "object",
+          "properties": {
+            "seeds": {"type": "array", "items": {"type": "integer"}, "uniqueItems": true},
+            "metrics": {"$ref": "#/$defs/string_list"},
+            "rng": {"type": ["string", "null"]}
+          },
+          "patternProperties": {"^x-[a-z0-9][a-z0-9_-]*$": true},
+          "additionalProperties": false
+        },
+        "equivalence_margins": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["metric", "margin", "provenance"],
+            "properties": {
+              "metric": {"type": "string", "minLength": 1},
+              "margin": {"type": ["number", "null"], "minimum": 0},
+              "provenance": {"type": ["string", "null"]}
+            },
+            "patternProperties": {"^x-[a-z0-9][a-z0-9_-]*$": true},
+            "additionalProperties": false
+          }
+        },
+        "performance_requirements": {"$ref": "#/$defs/string_list"}
+      },
+      "patternProperties": {"^x-[a-z0-9][a-z0-9_-]*$": true},
+      "additionalProperties": false
+    },
+    "commands": {
+      "type": "object",
+      "properties": {
+        "baseline": {"$ref": "#/$defs/command"},
+        "test": {"$ref": "#/$defs/command"},
+        "reproduce": {"$ref": "#/$defs/command"},
+        "benchmark": {"$ref": "#/$defs/command"}
+      },
+      "patternProperties": {"^x-[a-z0-9][a-z0-9_-]*$": true},
+      "additionalProperties": false
+    },
+    "data": {
+      "type": "object",
+      "properties": {
+        "raw_paths": {"$ref": "#/$defs/string_list"},
+        "sensitive_paths": {"$ref": "#/$defs/string_list"},
+        "generated_paths": {"$ref": "#/$defs/string_list"}
+      },
+      "patternProperties": {"^x-[a-z0-9][a-z0-9_-]*$": true},
+      "additionalProperties": false
+    },
+    "publication": {
+      "type": "object",
+      "properties": {
+        "frozen_refs": {"$ref": "#/$defs/string_list"},
+        "archived_paths": {"$ref": "#/$defs/string_list"},
+        "canonical_reproduction_entrypoints": {"$ref": "#/$defs/string_list"}
+      },
+      "patternProperties": {"^x-[a-z0-9][a-z0-9_-]*$": true},
+      "additionalProperties": false
+    }
+  },
+  "patternProperties": {"^x-[a-z0-9][a-z0-9_-]*$": true},
+  "additionalProperties": false,
+  "$defs": {
+    "string_list": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 1},
+      "uniqueItems": true
+    },
+    "command": {
+      "oneOf": [
+        {"type": "null"},
+        {"type": "string", "minLength": 1},
+        {"type": "array", "items": {"type": "string", "minLength": 1}, "minItems": 1}
+      ]
+    },
+    "thresholds": {
+      "type": "object",
+      "properties": {
+        "review": {"type": ["integer", "null"], "minimum": 1},
+        "refactor": {"type": ["integer", "null"], "minimum": 1}
+      },
+      "patternProperties": {"^x-[a-z0-9][a-z0-9_-]*$": true},
+      "additionalProperties": false
+    },
+    "artifact": {
+      "type": "object",
+      "required": ["path", "role", "mutation_policy"],
+      "properties": {
+        "path": {"type": "string", "minLength": 1},
+        "role": {"enum": ["exploratory-notebook", "exploratory-script", "data-ingestion", "data-cleaning-preprocessing", "experiment-orchestration", "analysis-statistics", "visualization-figure-generation", "scientific-kernel", "numerical-kernel", "simulation", "reference-implementation", "reusable-library", "cli-infrastructure", "test-verification", "manuscript-linked-reproduction", "published-archived-snapshot", "generated-code", "vendored-third-party", "raw-data", "derived-generated-output"]},
+        "mutation_policy": {"enum": ["allow", "characterize-first", "wrap-only", "frozen", "exclude"]},
+        "rationale": {"type": ["string", "null"]}
+      },
+      "patternProperties": {"^x-[a-z0-9][a-z0-9_-]*$": true},
+      "additionalProperties": false
+    }
+  }
+}

@@ -1,0 +1,82 @@
+schema_version: "1.0"
+
+project:
+  discipline: null
+  lifecycle: null
+  audience:
+    - research collaborators
+  research_outputs: []
+
+scope:
+  include:
+    - "src/**"
+    - "notebooks/**"
+  exclude:
+    - "vendor/**"
+    - "generated/**"
+
+artifacts:
+  - path: "src/run_experiments.py"
+    role: experiment-orchestration
+    mutation_policy: allow
+    rationale: "Runner configuration and dispatch are maintained code."
+  - path: "src/reference_method.py"
+    role: reference-implementation
+    mutation_policy: wrap-only
+    rationale: "Keep literal correspondence with the cited method."
+  - path: "data/raw/**"
+    role: raw-data
+    mutation_policy: exclude
+
+complexity:
+  review_threshold: 10
+  refactor_threshold: null
+  per_role:
+    experiment-orchestration:
+      review: 8
+      refactor: null
+    scientific-kernel:
+      review: 12
+      refactor: null
+
+scientific_contract:
+  invariants: []
+  units: []
+  schemas: []
+  frozen_outputs: []
+  mappings: []
+
+verification:
+  exact_checks: []
+  numerical_tolerances:
+    - metric: "Name the compared numerical quantity"
+      absolute: null
+      relative: null
+      provenance: null
+  stochastic:
+    seeds: []
+    metrics: []
+    rng: null
+  equivalence_margins:
+    - metric: "Name the quantity only when equivalence is required"
+      margin: null
+      provenance: null
+  performance_requirements: []
+
+commands:
+  baseline: null
+  test: null
+  reproduce: null
+  benchmark: null
+
+data:
+  raw_paths:
+    - "data/raw/**"
+  sensitive_paths: []
+  generated_paths:
+    - "outputs/**"
+
+publication:
+  frozen_refs: []
+  archived_paths: []
+  canonical_reproduction_entrypoints: []

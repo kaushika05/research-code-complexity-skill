@@ -1,0 +1,2 @@
+jsonschema[format]>=4.23,<5
+PyYAML>=6.0.2,<7
