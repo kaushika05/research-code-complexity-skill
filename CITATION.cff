@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use Research Code Complexity, please cite the software using this metadata."
+type: software
+title: "Research Code Complexity"
+authors:
+  - family-names: Wijerathne
+    given-names: Kay
+version: 0.1.0
+date-released: 2026-08-27
+repository-code: "https://github.com/kaushika05/research-code-complexity-skill"
+url: "https://github.com/kaushika05/research-code-complexity-skill"
+license: Apache-2.0
+keywords:
+  - research software
+  - scientific computing
+  - cyclomatic complexity
+  - reproducibility

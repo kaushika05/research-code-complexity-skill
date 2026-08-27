@@ -1,10 +1,10 @@
 # Research complexity report
 
-Mode: audit | plan | refactor  
-Scope: [files, diff, subsystem, or repository]  
-Profile source: explicit | local | project | user | inferred  
-Project lifecycle: [value or uncertain]  
-Analyzer: [tool and version]  
+Mode: audit | plan | refactor
+Scope: [files, diff, subsystem, or repository]
+Profile source: explicit | local | project | user | inferred
+Project lifecycle: [value or uncertain]
+Analyzer: [tool and version]
 Baseline command(s): [commands or unavailable]
 
 ## Scientific contract
