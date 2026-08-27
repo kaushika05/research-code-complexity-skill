@@ -1,0 +1,53 @@
+name: Validate
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: requirements-dev.txt
+
+      - name: Install isolated development dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements-dev.txt
+          python -m pip install "git+https://github.com/agentskills/agentskills.git@69ef37e9424c0a7ea9dd2293b559e43ec8176379#subdirectory=skills-ref"
+
+      - name: Validate skill structure
+        run: skills-ref validate skills/research-code-complexity
+
+      - name: Run unit and repository tests
+        run: |
+          python -m unittest discover -s tests -v
+          python scripts/validate_repository.py
+
+      - name: Validate bundled profiles
+        run: |
+          python skills/research-code-complexity/scripts/validate_profile.py \
+            skills/research-code-complexity/assets/research-code-complexity.example.yaml \
+            skills/research-code-complexity/assets/research-code-complexity.local.example.yaml \
+            examples/profiles/*.yaml \
+            skills/research-code-complexity/evals/files/shared-profile.yaml \
+            skills/research-code-complexity/evals/files/local-profile.yaml
+
+      - name: Validate CITATION.cff against pinned official schema
+        run: |
+          curl --fail --silent --show-error --location \
+            https://raw.githubusercontent.com/citation-file-format/citation-file-format/0c5b4aa07071490eaf261775ce96ccdd13a6e2d5/schema.json \
+            --output "$RUNNER_TEMP/cff-schema.json"
+          python scripts/validate_cff.py CITATION.cff "$RUNNER_TEMP/cff-schema.json"

@@ -1,0 +1,11 @@
+schema_version: "1.0"
+
+scope:
+  exclude:
+    - ".cache/**"
+    - "scratch/**"
+
+commands:
+  test: "python -m pytest -q"
+
+x-local-note: "Copy to .research-code-complexity.local.yaml and keep it out of version control."

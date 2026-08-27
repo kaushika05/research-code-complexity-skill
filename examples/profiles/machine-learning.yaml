@@ -1,0 +1,38 @@
+schema_version: "1.0"
+project:
+  discipline: machine learning
+  lifecycle: active-research
+  audience: [research team]
+  research_outputs: [trained checkpoints, evaluation tables]
+scope:
+  include: ["src/**", "experiments/**"]
+  exclude: ["data/raw/**", "checkpoints/**"]
+artifacts:
+  - path: "experiments/train.py"
+    role: experiment-orchestration
+    mutation_policy: characterize-first
+    rationale: "Preserve split, preprocessing, seed, and checkpoint behavior."
+complexity:
+  review_threshold: 10
+  refactor_threshold: null
+scientific_contract:
+  invariants:
+    - "Training, validation, and test sample IDs do not change."
+  schemas:
+    - artifact: "model inputs"
+      description: "Feature order and label mapping are stable."
+      schema_ref: "docs/features.md"
+verification:
+  exact_checks:
+    - "Compare ordered sample IDs for every split."
+  stochastic:
+    seeds: [101, 202, 303]
+    metrics: [validation loss, held-out accuracy]
+    rng: "Repository-defined RNG family and worker seed derivation"
+commands:
+  test: "python -m pytest -q"
+  reproduce: null
+data:
+  raw_paths: ["data/raw/**"]
+  sensitive_paths: []
+  generated_paths: ["checkpoints/**", "runs/**"]

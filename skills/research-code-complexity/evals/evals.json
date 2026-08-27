@@ -1,0 +1,161 @@
+{
+  "skill_name": "research-code-complexity",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Refactor evals/files/experiment_runner.py to reduce its cyclomatic complexity without changing experiment outputs.",
+      "expected_output": "Refactor mode: measure the runner, identify accidental orchestration complexity, establish output/seed contracts, split dispatch from scientific transformations, verify, and report before/after evidence.",
+      "files": ["evals/files/experiment_runner.py"],
+      "assertions": [
+        "Identifies experiment orchestration as the artifact role and selects Refactor mode.",
+        "Establishes seed, configuration, and output contracts before editing.",
+        "Reports analyzer/version or a transparent manual convention and before/after values.",
+        "Does not claim scientific equivalence beyond checks actually run."
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "This literal implementation of Equation 7 is hard to read and has high CC. Clean up evals/files/reference_kernel.py.",
+      "expected_output": "Recognize a paper-aligned reference kernel as essential complexity; prefer leave-as-is, documentation, characterization, or a wrapper unless evidence supports a semantics-preserving edit.",
+      "files": ["evals/files/reference_kernel.py"],
+      "assertions": [
+        "Does not automatically refactor the high-CC kernel.",
+        "Identifies the equation mapping, operation order, units, and boundary behavior as contract candidates.",
+        "Uses Leave as-is, Document or annotate, Wrap without changing the core, or Refactor after characterization with evidence."
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Audit the complexity and reproducibility risks in evals/files/hidden_state.ipynb. Do not edit it.",
+      "expected_output": "Audit mode: distinguish defined-function CC, top-level cell flow, and hidden cross-cell state; recommend restart-and-run-all if possible and disclose unavailable execution.",
+      "files": ["evals/files/hidden_state.ipynb"],
+      "assertions": [
+        "Makes no repository edits.",
+        "Finds that a later cell relies on state mutated in an earlier cell.",
+        "Separates cyclomatic complexity from execution-order dependence.",
+        "Reports whether restart-and-run-all was actually performed."
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "Simplify evals/files/stochastic_sim.py while preserving the simulation's behavior.",
+      "expected_output": "Refactor only after identifying RNG family, seed derivation, sampling order, outputs, and selected distribution metrics; use fixed- and multi-seed evidence where feasible.",
+      "files": ["evals/files/stochastic_sim.py"],
+      "assertions": [
+        "Identifies RNG and sampling order as scientific contract elements.",
+        "Does not infer equivalence from one random run.",
+        "Calls for fixed-seed characterization and multi-seed metrics or states why unavailable."
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "Refactor the branching in evals/files/ml_pipeline.py and make the preprocessing reusable.",
+      "expected_output": "Protect train/test IDs and ensure preprocessing is fit only on training data; reject a superficially simpler refactor that introduces leakage.",
+      "files": ["evals/files/ml_pipeline.py"],
+      "assertions": [
+        "Identifies split identity and preprocessing fit boundary.",
+        "Does not move fit_transform before the split or fit on test data.",
+        "Includes leakage-focused verification."
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "Audit evals/files/analysis.R for cyclomatic complexity. There is no linter configuration and you may not install packages into this project.",
+      "expected_output": "Use an existing cyclocomp installation, an isolated environment, or a transparent per-function manual count; do not claim an analyzer ran if it did not.",
+      "files": ["evals/files/analysis.R"],
+      "assertions": [
+        "Does not mutate the project environment.",
+        "Names the analyzer and version if run, otherwise gives a reproducible manual counting convention.",
+        "Reports unavailable verification honestly."
+      ]
+    },
+    {
+      "id": 7,
+      "prompt": "Reduce complexity across evals/files/generated_parser.py and tell me what changed.",
+      "expected_output": "Detect the generated-file marker and exclude the file, recommending work on the generator only if that source is in scope.",
+      "files": ["evals/files/generated_parser.py"],
+      "assertions": [
+        "Classifies the file as generated from content evidence.",
+        "Does not modify the generated file.",
+        "Uses the explicit Exclude decision with evidence."
+      ]
+    },
+    {
+      "id": 8,
+      "prompt": "This little exploratory script feels messy. Refactor evals/files/exploratory.py, but keep the response proportionate.",
+      "expected_output": "Apply a small, evidence-backed simplification or leave it alone; do not introduce a package, framework, classes, or broad architecture.",
+      "files": ["evals/files/exploratory.py"],
+      "assertions": [
+        "Classifies the artifact as exploratory and uses proportional intervention.",
+        "Does not propose a large architecture rewrite.",
+        "States what lightweight check verifies the change."
+      ]
+    },
+    {
+      "id": 9,
+      "prompt": "Audit evals/files/experiment_runner.py using the shared project profile in evals/files/shared-profile.yaml.",
+      "expected_output": "Use the shared profile threshold and mutation policy, identify the profile source, and preserve explicit user scope.",
+      "files": ["evals/files/experiment_runner.py", "evals/files/shared-profile.yaml"],
+      "assertions": [
+        "Applies the shared review threshold of 7.",
+        "Reports the project profile as the winning configuration source absent higher-precedence values.",
+        "Does not turn Audit mode into Refactor mode."
+      ]
+    },
+    {
+      "id": 10,
+      "prompt": "Plan a complexity cleanup using both profiles supplied. The local profile overrides the shared profile.",
+      "expected_output": "Apply local over shared precedence, use review threshold 5, remain in Plan mode, and report the resolved sources.",
+      "files": ["evals/files/shared-profile.yaml", "evals/files/local-profile.yaml", "evals/files/experiment_runner.py"],
+      "assertions": [
+        "Applies the local review threshold of 5 rather than the shared value of 7.",
+        "Does not edit code in Plan mode.",
+        "Explains the relevant precedence decision."
+      ]
+    },
+    {
+      "id": 11,
+      "prompt": "Clean up evals/files/published_reproduction.py. It is the exact script archived with our paper.",
+      "expected_output": "Treat the canonical script as frozen; leave it unchanged and propose a new version, wrapper, or annotation route while preserving reproduction.",
+      "files": ["evals/files/published_reproduction.py"],
+      "assertions": [
+        "Does not modify the published canonical artifact.",
+        "Uses Leave as-is or Wrap without changing the core with publication evidence.",
+        "Preserves a route to the archived result."
+      ]
+    },
+    {
+      "id": 12,
+      "prompt": "Refactor evals/files/web_service.ts to simplify its request handler.",
+      "expected_output": "Treat this as an ordinary web-service refactor unless repository evidence makes it research code; do not force a scientific contract audit merely because the skill is installed.",
+      "files": ["evals/files/web_service.ts"],
+      "assertions": [
+        "Does not inject research-specific assumptions without evidence.",
+        "May use ordinary complexity practices while preserving the request-handler API.",
+        "Does not mention Kay-specific projects, preferences, or research."
+      ]
+    },
+    {
+      "id": 13,
+      "prompt": "Refactor evals/files/untested_analysis.py. The repository has no tests or example outputs.",
+      "expected_output": "Identify the missing contract and require bounded characterization before an aggressive refactor; report checks unavailable.",
+      "files": ["evals/files/untested_analysis.py"],
+      "assertions": [
+        "Uses Refactor after characterization or Defer because scientific review is required.",
+        "Does not claim behavior preservation from inspection alone.",
+        "Specifies concrete characterization targets and unavailable evidence."
+      ]
+    },
+    {
+      "id": 14,
+      "prompt": "Simplify evals/files/make_figure.py without changing Figure 2.",
+      "expected_output": "Trace the figure to evals/files/figure_data.csv and compare plotted values, categories, units, and aggregation; do not rely only on pixel equality.",
+      "files": ["evals/files/make_figure.py", "evals/files/figure_data.csv"],
+      "assertions": [
+        "Identifies source data and aggregation as part of the contract.",
+        "Checks plotted values, categories, axes, and units.",
+        "Does not use pixel equality as the only verification."
+      ]
+    }
+  ]
+}

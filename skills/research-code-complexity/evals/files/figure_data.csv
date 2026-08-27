@@ -1,0 +1,6 @@
+condition,response_ms,include
+control,120,yes
+control,130,yes
+treatment,105,yes
+treatment,999,no
+treatment,115,yes

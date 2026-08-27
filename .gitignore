@@ -1,3 +1,9 @@
+# Modified for Research Code Complexity; upstream provenance is in UPSTREAM.md.
 .DS_Store
 *.skill
 __pycache__/
+.venv/
+.pytest_cache/
+dist/
+.research-code-complexity.local.yaml
+*.egg-info/

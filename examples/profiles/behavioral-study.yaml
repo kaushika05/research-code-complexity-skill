@@ -1,0 +1,28 @@
+schema_version: "1.0"
+project:
+  discipline: behavioral research
+  lifecycle: collaborative-internal-research
+  audience: [study team]
+  research_outputs: [analysis tables, study figures]
+scope:
+  include: ["analysis/**"]
+  exclude: ["data/raw/**", "data/private/**"]
+artifacts:
+  - path: "analysis/exclusions.R"
+    role: analysis-statistics
+    mutation_policy: characterize-first
+    rationale: "Eligibility and exclusion rules require protocol traceability."
+scientific_contract:
+  invariants:
+    - "Participant IDs included in each analysis population remain unchanged."
+  mappings:
+    - kind: protocol
+      reference: "Registered exclusion rules"
+      artifact: "analysis/exclusions.R"
+verification:
+  exact_checks:
+    - "Compare de-identified participant IDs and exclusion reason codes."
+data:
+  raw_paths: ["data/raw/**"]
+  sensitive_paths: ["data/private/**"]
+  generated_paths: ["outputs/**"]

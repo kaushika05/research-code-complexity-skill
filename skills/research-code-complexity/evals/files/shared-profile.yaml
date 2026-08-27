@@ -1,0 +1,8 @@
+schema_version: "1.0"
+complexity:
+  review_threshold: 7
+  refactor_threshold: null
+artifacts:
+  - path: "experiment_runner.py"
+    role: experiment-orchestration
+    mutation_policy: characterize-first

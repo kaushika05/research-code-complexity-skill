@@ -1,0 +1,33 @@
+schema_version: "1.0"
+project:
+  discipline: bioinformatics
+  lifecycle: reusable-community-software
+  audience: [bioinformaticians, pipeline maintainers]
+  research_outputs: [variant tables, quality-control summaries]
+scope:
+  include: ["workflow/**", "src/**"]
+  exclude: ["references/**", "data/raw/**", "vendor/**"]
+artifacts:
+  - path: "workflow/**"
+    role: experiment-orchestration
+    mutation_policy: allow
+  - path: "references/**"
+    role: raw-data
+    mutation_policy: exclude
+scientific_contract:
+  invariants:
+    - "Sample identity and reference-coordinate convention remain unchanged."
+  schemas:
+    - artifact: "variant output"
+      description: "Column names, types, coordinate convention, and sample order"
+      schema_ref: "docs/output-schema.md"
+verification:
+  exact_checks:
+    - "Compare sample IDs, reference build identifier, row keys, and schema."
+commands:
+  test: null
+  reproduce: null
+data:
+  raw_paths: ["data/raw/**", "references/**"]
+  sensitive_paths: []
+  generated_paths: ["results/**"]

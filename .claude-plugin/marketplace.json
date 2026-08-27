@@ -1,13 +1,24 @@
 {
-  "name": "cyclomatic-complexity-skill",
+  "name": "research-code-complexity-skill",
   "owner": {
-    "name": "Saurabh Kumar"
+    "name": "Kay Wijerathne"
+  },
+  "description": "Portable research-aware code-complexity skills",
+  "metadata": {
+    "description": "Portable research-aware code-complexity skills",
+    "modified_from": "saurabhkumar8112/cyclomatic-complexity-skill@567886f485063c5f5f94503d5712ef75cbcbbd94"
   },
   "plugins": [
     {
-      "name": "cyclomatic-complexity",
+      "name": "research-code-complexity",
       "source": "./",
-      "description": "Refactor code to reduce cyclomatic complexity. Measures per-function complexity, refactors hotspots worst-first, reports before/after numbers. Keeps AI-generated code maintainable for humans."
+      "description": "Research-aware cyclomatic-complexity analysis and refactoring for notebooks, simulations, ML experiments, analysis pipelines, and publication code. Reduces accidental complexity while preserving scientific semantics and reproducibility.",
+      "category": "development",
+      "tags": [
+        "research-software",
+        "scientific-computing",
+        "code-quality"
+      ]
     }
   ]
 }

@@ -1,0 +1,40 @@
+schema_version: "1.0"
+project:
+  discipline: numerical simulation
+  lifecycle: pre-publication
+  audience: [domain researchers, manuscript reviewers]
+  research_outputs: [simulation states, manuscript figures]
+artifacts:
+  - path: "src/solver/**"
+    role: numerical-kernel
+    mutation_policy: characterize-first
+    rationale: "Operation order and convergence behavior are scientifically material."
+  - path: "src/run_cases.py"
+    role: experiment-orchestration
+    mutation_policy: allow
+complexity:
+  review_threshold: 12
+  refactor_threshold: null
+scientific_contract:
+  invariants:
+    - "Conserved quantity specified in docs/model.md remains within its documented bound."
+  units:
+    - quantity: simulation time
+      unit: seconds
+      applies_to: "solver state and output files"
+      provenance: "docs/model.md"
+verification:
+  numerical_tolerances:
+    - metric: state comparison norm
+      absolute: null
+      relative: null
+      provenance: null
+  performance_requirements:
+    - "Benchmark the representative case defined by the project before and after kernel changes."
+commands:
+  test: null
+  benchmark: null
+publication:
+  frozen_refs: []
+  archived_paths: []
+  canonical_reproduction_entrypoints: ["scripts/reproduce_figures.sh"]

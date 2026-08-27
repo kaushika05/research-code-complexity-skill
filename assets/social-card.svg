@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="640" viewBox="0 0 1280 640" role="img" aria-labelledby="title desc">
+  <title id="title">Research Code Complexity</title>
+  <desc id="desc">A branching control-flow diagram resolves into a traceable four-stage scientific pipeline beside the tagline Reduce accidental complexity without erasing scientific intent.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#071521"/>
+      <stop offset="0.58" stop-color="#0B2230"/>
+      <stop offset="1" stop-color="#12313B"/>
+    </linearGradient>
+    <linearGradient id="signal" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#F5B942"/>
+      <stop offset="1" stop-color="#55D6BE"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="18" flood-color="#001018" flood-opacity="0.45"/>
+    </filter>
+  </defs>
+
+  <rect width="1280" height="640" fill="url(#bg)"/>
+  <circle cx="1100" cy="75" r="250" fill="#55D6BE" opacity="0.055"/>
+  <circle cx="1165" cy="585" r="310" fill="#F5B942" opacity="0.04"/>
+  <path d="M0 540 C280 490 420 660 760 566 S1100 460 1280 520" fill="none" stroke="#DCECF1" stroke-opacity="0.06" stroke-width="2"/>
+
+  <g transform="translate(70 75)" filter="url(#shadow)">
+    <rect x="0" y="0" width="390" height="490" rx="28" fill="#0C1E2A" stroke="#DCECF1" stroke-opacity="0.13"/>
+    <text x="34" y="48" fill="#A8C1CA" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" letter-spacing="2.4">CONTROL FLOW → EVIDENCE</text>
+
+    <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M56 125 H115 M115 125 V78 M115 125 V172 M115 78 H181 M115 172 H181" stroke="#F5B942" stroke-width="5"/>
+      <path d="M181 78 H220 M181 172 H220 M220 78 V172 M220 125 H272" stroke="#F5B942" stroke-width="5" opacity="0.75"/>
+      <circle cx="56" cy="125" r="12" fill="#F5B942" stroke="none"/>
+      <circle cx="115" cy="78" r="9" fill="#0C1E2A" stroke="#F5B942" stroke-width="4"/>
+      <circle cx="115" cy="172" r="9" fill="#0C1E2A" stroke="#F5B942" stroke-width="4"/>
+      <circle cx="181" cy="78" r="9" fill="#0C1E2A" stroke="#F5B942" stroke-width="4"/>
+      <circle cx="181" cy="172" r="9" fill="#0C1E2A" stroke="#F5B942" stroke-width="4"/>
+      <circle cx="272" cy="125" r="12" fill="#55D6BE" stroke="none"/>
+    </g>
+
+    <path d="M56 260 H322" stroke="url(#signal)" stroke-width="5" stroke-linecap="round"/>
+    <g font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" text-anchor="middle">
+      <g transform="translate(63 260)">
+        <circle r="20" fill="#102C38" stroke="#55D6BE" stroke-width="3"/>
+        <text y="5" fill="#E9F5F7">1</text>
+      </g>
+      <g transform="translate(149 260)">
+        <circle r="20" fill="#102C38" stroke="#55D6BE" stroke-width="3"/>
+        <text y="5" fill="#E9F5F7">2</text>
+      </g>
+      <g transform="translate(235 260)">
+        <circle r="20" fill="#102C38" stroke="#55D6BE" stroke-width="3"/>
+        <text y="5" fill="#E9F5F7">3</text>
+      </g>
+      <g transform="translate(321 260)">
+        <circle r="20" fill="#102C38" stroke="#55D6BE" stroke-width="3"/>
+        <text y="5" fill="#E9F5F7">4</text>
+      </g>
+    </g>
+    <g fill="#A8C1CA" font-family="Arial, Helvetica, sans-serif" font-size="13" text-anchor="middle">
+      <text x="63" y="310">measure</text>
+      <text x="149" y="310">classify</text>
+      <text x="235" y="310">protect</text>
+      <text x="321" y="310">verify</text>
+    </g>
+
+    <rect x="34" y="350" width="322" height="100" rx="16" fill="#071521" stroke="#55D6BE" stroke-opacity="0.35"/>
+    <text x="56" y="382" fill="#55D6BE" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" letter-spacing="1.5">DECISION</text>
+    <text x="56" y="414" fill="#E9F5F7" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700">Refactor accidental branches.</text>
+    <text x="56" y="440" fill="#A8C1CA" font-family="Arial, Helvetica, sans-serif" font-size="16">Preserve the scientific core.</text>
+  </g>
+
+  <g transform="translate(520 108)">
+    <rect x="0" y="0" width="94" height="8" rx="4" fill="url(#signal)"/>
+    <text x="0" y="88" fill="#F5F9FA" font-family="Arial, Helvetica, sans-serif" font-size="58" font-weight="800" letter-spacing="-1.5">Research Code</text>
+    <text x="0" y="154" fill="#F5F9FA" font-family="Arial, Helvetica, sans-serif" font-size="58" font-weight="800" letter-spacing="-1.5">Complexity</text>
+
+    <text x="0" y="225" fill="#DCECF1" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="600">Reduce accidental complexity</text>
+    <text x="0" y="261" fill="#DCECF1" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="600">without erasing scientific intent.</text>
+
+    <line x1="0" y1="310" x2="660" y2="310" stroke="#DCECF1" stroke-opacity="0.16"/>
+    <text x="0" y="360" fill="#55D6BE" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700">Notebooks</text>
+    <circle cx="128" cy="353" r="3" fill="#F5B942"/>
+    <text x="148" y="360" fill="#55D6BE" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700">Simulations</text>
+    <circle cx="285" cy="353" r="3" fill="#F5B942"/>
+    <text x="305" y="360" fill="#55D6BE" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700">ML experiments</text>
+    <circle cx="467" cy="353" r="3" fill="#F5B942"/>
+    <text x="487" y="360" fill="#55D6BE" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700">Analysis pipelines</text>
+
+    <text x="0" y="425" fill="#8FAAB4" font-family="Arial, Helvetica, sans-serif" font-size="16" letter-spacing="1.2">RESEARCH-AWARE AGENT SKILL</text>
+  </g>
+</svg>
