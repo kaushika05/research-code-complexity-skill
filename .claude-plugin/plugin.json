@@ -1,0 +1,17 @@
+{
+  "name": "research-code-complexity",
+  "description": "Research-aware cyclomatic-complexity analysis and refactoring for notebooks, simulations, ML experiments, analysis pipelines, and publication code. Reduces accidental complexity while preserving scientific semantics and reproducibility.",
+  "version": "0.1.0",
+  "author": {
+    "name": "Kay Wijerathne"
+  },
+  "homepage": "https://github.com/kaushika05/research-code-complexity-skill",
+  "repository": "https://github.com/kaushika05/research-code-complexity-skill",
+  "license": "Apache-2.0",
+  "keywords": [
+    "research-software",
+    "scientific-computing",
+    "cyclomatic-complexity",
+    "reproducibility"
+  ]
+}
